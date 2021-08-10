@@ -19,7 +19,7 @@ pipeline {
         stage('Run Unit Tests') {
             steps {
                 echo 'Run unit tests '
-                echo 'from the source code'
+                echo 'from the jenkins file'
             }
         }
         stage('Run Integration Tests') {
