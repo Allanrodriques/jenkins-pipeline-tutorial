@@ -1,6 +1,11 @@
 pipeline {
     agent any 
     stages {
+        stage('Example Build') {
+            steps {
+                echo 'Hello Allan'
+            }
+        }
         stage('Static Analysis') {
             steps {
                 echo 'Run the static analysis to the code' 
@@ -30,6 +35,18 @@ pipeline {
         stage('Publish Artifacts') {
             steps {
                 echo 'Save the assemblies generated from the compilation' 
+            }
+        }
+        stage('Example anyOf branches') {
+            when {
+                anyOf {
+                    branch 'production'
+                    branch 'release'
+                    branch 'main-**'
+                }
+            }
+            steps {
+                echo 'Executing anyOf with branch'
             }
         }
     }
