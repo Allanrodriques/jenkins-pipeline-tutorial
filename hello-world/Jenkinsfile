@@ -1,5 +1,8 @@
 pipeline {
     agent any 
+    options {
+        timeout(time: 1, unit: 'HOURS') 
+    }
     stages {
         stage('Example Build') {
             steps {
@@ -37,12 +40,6 @@ pipeline {
                 echo 'Save the assemblies generated from the compilation' 
             }
         }
-         timeout(unit: 'SECONDS', time: 5) {
-        stage("One"){
-            sleep 10
-            echo 'Allan'
-        }
-    }
         stage('Example anyOf branches') {
             when {
                 anyOf {
