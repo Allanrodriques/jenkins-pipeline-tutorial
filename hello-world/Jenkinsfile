@@ -40,13 +40,13 @@ pipeline {
         stage('Example anyOf branches') {
             when {
                 anyOf {
-                    branch 'production'
-                    branch 'release'
+                    branch 'Run Integration Tests'
+                    branch 'Publish Artifacts'
                     branch 'main-**'
                 }
             }
             steps {
-                echo 'Executing anyOf with branch'
+                echo 'Executing any Of with branch'
             }
         }
     }
