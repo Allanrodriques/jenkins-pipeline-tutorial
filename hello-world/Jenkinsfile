@@ -37,6 +37,12 @@ pipeline {
                 echo 'Save the assemblies generated from the compilation' 
             }
         }
+         timeout(unit: 'SECONDS', time: 5) {
+        stage("One"){
+            sleep 10
+            echo 'Allan'
+        }
+    }
         stage('Example anyOf branches') {
             when {
                 anyOf {
